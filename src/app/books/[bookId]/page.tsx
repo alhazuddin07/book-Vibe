@@ -10,10 +10,17 @@ interface IBookDetailPageProps {
 }
 
 const getBooks = async () => {
-    const res = await fetch('http://localhost:3000/booksData.json');
-    const data = res.json();
-    return data;
-}
+    try {
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`,
+        );
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching books data", error);
+        return [];
+    }
+};
 
 const BookDetailPage = async ({ params }: IBookDetailPageProps) => {
 
@@ -122,8 +129,8 @@ const BookDetailPage = async ({ params }: IBookDetailPageProps) => {
                     </div>
 
                     <div className='flex gap-4 mt-4'>
-                        <ReadButton book={book}/>
-                        <WishListButton book={book}/>
+                        <ReadButton book={book} />
+                        <WishListButton book={book} />
                     </div>
 
                 </div>

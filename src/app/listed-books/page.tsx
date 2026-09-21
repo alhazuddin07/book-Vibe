@@ -37,8 +37,7 @@ const ListedBooks = () => {
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as "rating" | "pages" | "year")}
                     defaultValue="Pick a Runtime"
-                    className="select select-success"
-                >
+                    className="select select-success">
 
                     <option disabled={true}>Short by</option>
                     <option value={"rating"}>Rating</option>
