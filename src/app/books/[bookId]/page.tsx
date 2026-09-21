@@ -54,7 +54,7 @@ const BookDetailPage = async ({ params }: IBookDetailPageProps) => {
                             {book.category}
                         </span>
 
-                        {book.tags.map((tag) => (
+                        {book.tags.map((tag: string) => (
                             <span
                                 key={tag}
                                 className="text-sm font-medium text-slate-500"
